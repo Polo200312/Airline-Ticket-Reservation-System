@@ -1,0 +1,1196 @@
+@startuml
+class org.fatmansoft.teach.controllers.NationController {
+- NationRepository nationRepository
+- VisaFreeAgreementRepository visaFreeAgreementRepository
++ Integer getNewNationId()
++ Map getMapFromNations(Nation)
++ List getNationsMapList()
++ DataResponse getNationByName(DataRequest)
++ DataResponse getAllNationList(DataRequest)
++ DataResponse getNationInfo(DataRequest)
++ DataResponse addNation(DataRequest)
++ DataResponse editNation(DataRequest)
++ DataResponse changeNationSave(DataRequest)
+- void updateVisaFreeAgreements(Nation,List<Integer>)
+}
+
+
+class org.fatmansoft.teach.controllers.AuthController {
+~ AuthenticationManager authenticationManager
+~ UserRepository userRepository
+~ UserTypeRepository userTypeRepository
+~ PasswordEncoder encoder
+~ JwtUtils jwtUtils
+- ResourceLoader resourceLoader
+- PersonRepository personRepository
+- EmailService emailService
+- StudentRepository studentRepository
+- TeacherRepository teacherRepository
+- ClientRepository clientRepository
+- AirlineCompanyRepository airlineCompanyRepository
+- Map<String,Instant> verificationCodeTimestamps
+- Map<String,String> verificationCodes
++ Integer getNewPersonId()
++ Integer getNewUserId()
++ Integer getNewStudentId()
++ ResponseEntity<?> authenticateUser(LoginRequest)
++ DataResponse registerUser(DataRequest)
+- String generateUniqueNumericNum(String)
+- String generateUniqueAirlineNum()
+- String generateNumericNum()
+- String generateAirlineNum()
++ DataResponse getValidateCode(DataRequest)
++ DataResponse testValidateInfo(DataRequest)
++ DataResponse resetPassWord(DataRequest)
++ DataResponse checkEmailUser(DataRequest)
++ DataResponse changePass(DataRequest)
++ DataResponse sendVerificationCode(DataRequest)
+- void verifyAndCleanExpiredVerificationCodes()
++ void cleanupExpiredCodes()
++ DataResponse updateEmail(DataRequest)
++ DataResponse checkCode(DataRequest)
+- boolean isCodeExist(String)
++ DataResponse getUserDataByEmail(DataRequest)
++ Map getMapFromUser(User)
+}
+
+
+class org.fatmansoft.teach.models.VisaFreeAgreement {
+- Long id
+- Nation nation1
+- Nation nation2
++ Long getId()
++ void setId(Long)
++ Nation getNation1()
++ void setNation1(Nation)
++ Nation getNation2()
++ void setNation2(Nation)
+}
+
+
+class org.fatmansoft.teach.models.Message {
+- Integer messageId
+- String fromUser
+- String toUser
+- String content
+- String time
+- Boolean ifRead
++ Integer getMessageId()
++ void setMessageId(Integer)
++ String getTime()
++ void setTime(String)
++ String getFromUser()
++ void setFromUser(String)
++ String getToUser()
++ void setToUser(String)
++ String getContent()
++ void setContent(String)
++ Boolean getIfRead()
++ void setIfRead(Boolean)
+}
+
+
+class org.fatmansoft.teach.models.Nation {
+- Integer nationId
+- String nationName
+- List<VisaFreeAgreement> visaFreeAgreementsAsNation1
+- List<VisaFreeAgreement> visaFreeAgreementsAsNation2
++ Integer getNationId()
++ void setNationId(Integer)
++ String getNationName()
++ void setNationName(String)
++ List<VisaFreeAgreement> getVisaFreeAgreementsAsNation1()
++ void setVisaFreeAgreementsAsNation1(List<VisaFreeAgreement>)
++ List<VisaFreeAgreement> getVisaFreeAgreementsAsNation2()
++ void setVisaFreeAgreementsAsNation2(List<VisaFreeAgreement>)
+}
+
+
+enum org.fatmansoft.teach.models.EUserType {
++  ROLE_ADMIN
++  ROLE_STUDENT
++  ROLE_TEACHER
++  ROLE_CLIENT
++  ROLE_AIRLINECOMPANY
+}
+
+class org.fatmansoft.teach.controllers.StatisticsController {
+- UserRepository userRepository
+- StatisticsDayRepository statisticsDayRepository
++ DataResponse getMainPageData(DataRequest)
+}
+
+
+interface org.fatmansoft.teach.repository.SeatRepository {
+~ Optional<Seat> findBySeatId(Integer)
+~ Integer getMaxId()
+~ List<Seat> findByPlanePlaneId(Integer)
+~ Optional<Seat> findByDealId(Integer)
+}
+
+class org.fatmansoft.teach.RunJApplet {
++ {static} void run(JApplet)
+}
+
+interface org.fatmansoft.teach.repository.AirlineCompanyRepository {
+~ Integer getMaxId()
+~ Optional<AirlineCompany> findByAirlineCompanyId(Integer)
+~ Optional<AirlineCompany> findByAirlineCompanyAirlineCompanyName(String)
+~ List<AirlineCompany> findAirlineCompanyListByNumName(String)
+~ Optional<AirlineCompany> findByPersonNum(String)
+}
+
+interface org.fatmansoft.teach.repository.AirportRepository {
+~ Integer getMaxId()
+~ Optional<Airport> findByAirportId(Integer)
+~ Optional<Airport> findByAirportAirportName(String)
+~ List<Airport> findAirportListByCityName(String)
+~ List<Airport> findAirportList(String)
+~ List<Airport> findByCityId(Integer)
+~ List<Airport> findByStatus(String)
+}
+
+class org.fatmansoft.teach.models.Seat {
+- Integer seatId
+- Plane plane
+- Deal deal
+- String seatRowNumber
+- String seatColumnNumber
+- boolean isBooked
+- String level
+- Integer price
++ Integer getSeatId()
++ void setSeatId(Integer)
++ boolean isBooked()
++ void setBooked(boolean)
++ String getSeatColumnNumber()
++ void setSeatColumnNumber(String)
++ String getSeatRowNumber()
++ void setSeatRowNumber(String)
++ Plane getPlane()
++ void setPlane(Plane)
++ Deal getDeal()
++ void setDeal(Deal)
++ String getLevel()
++ void setLevel(String)
++ Integer getPrice()
++ void setPrice(Integer)
+}
+
+
+class org.fatmansoft.teach.models.City {
+- Integer cityId
+- Nation nation
+- String cityName
+- Integer searchTimes
+- String timeZone
+- String timeAdapter
+- Integer cityX
+- Integer cityY
++ Integer getCityId()
++ void setCityId(Integer)
++ Nation getNation()
++ void setNation(Nation)
++ String getCityName()
++ void setCityName(String)
++ String getTimeZone()
++ void setTimeZone(String)
++ String getTimeAdapter()
++ void setTimeAdapter(String)
++ Integer getSearchTimes()
++ void setSearchTimes(Integer)
++ Integer getCityX()
++ void setCityX(Integer)
++ Integer getCityY()
++ void setCityY(Integer)
+}
+
+
+interface org.fatmansoft.teach.repository.SystemInfoRepository {
+}
+interface org.fatmansoft.teach.repository.TravelRecordRepository {
+~ Integer getMaxId()
+~ Optional<TravelRecord> findByTravelRecordId(Integer)
+~ List<TravelRecord> findTravelRecordList(Integer)
+~ List<TravelRecord> findByClientClientId(Integer)
+}
+
+class org.fatmansoft.teach.controllers.TeamController {
+- String attachFolder
+- PersonRepository personRepository
+- StudentRepository studentRepository
+- TeamRepository teamRepository
+- PasswordEncoder encoder
+- UserTypeRepository userTypeRepository
+- UserRepository userRepository
+- StudentService studentService
+- TeamWorkRepository teamWorkRepository
+- TaskStudentRepository taskStudentRepository
+- TaskRepository taskRepository
++ DataResponse importStudentData(byte[],String,String)
++ Integer getCurrentTaskId(DataRequest)
++ DataResponse getStudentTeamInfo(DataRequest)
++ DataResponse saveStudentTeamInfo(DataRequest)
++ List getTeamStudentList(List<Team>,List<TaskStudent>)
++ DataResponse getTeamManageData(DataRequest)
++ DataResponse getTeamDataList(DataRequest)
++ ResponseEntity<StreamingResponseBody> getTeamStudentListExcl(DataRequest)
++ String getNewTeamNo()
++ DataResponse addNewTeam(DataRequest)
++ DataResponse setStudentTeam(DataRequest)
++ DataResponse modifyTeamData(DataRequest)
++ DataResponse uploadTeamFile(byte[],String,String,String)
++ DataResponse saveWorkContent(DataRequest)
++ DataResponse importStudentExcl(Map,MultipartFile)
++ DataResponse uploadTeamFileWeb(Map,MultipartFile)
++ ResponseEntity<StreamingResponseBody> getTeamProjectFileWeb(DataRequest)
++ DataResponse getTaskOptionItemList(DataRequest)
++ DataResponse getTeamOptionItemList(DataRequest)
++ DataResponse saveTeamScore(DataRequest)
++ DataResponse getTaskStudentDataList(DataRequest)
++ ResponseEntity<StreamingResponseBody> getStudentScoreListExcl(DataRequest)
++ DataResponse deleteTaskStudent(DataRequest)
+}
+
+
+interface org.fatmansoft.teach.repository.SpotRepository {
+~ Optional<Spot> findBySpotId(Integer)
+~ Integer getMaxId()
+}
+
+interface org.fatmansoft.teach.repository.ModifyLogRepository {
+}
+class org.fatmansoft.teach.models.User {
+- Integer userId
+- UserType userType
+- Person person
+- String userName
+- String password
+- Integer loginCount
+- String lastLoginTime
+- String createTime
+- Integer creatorId
++ Integer getUserId()
++ void setUserId(Integer)
++ UserType getUserType()
++ void setUserType(UserType)
++ String getUserName()
++ void setUserName(String)
++ String getPassword()
++ void setPassword(String)
++ Integer getLoginCount()
++ void setLoginCount(Integer)
++ String getLastLoginTime()
++ void setLastLoginTime(String)
++ Person getPerson()
++ void setPerson(Person)
++ String getCreateTime()
++ void setCreateTime(String)
++ Integer getCreatorId()
++ void setCreatorId(Integer)
+}
+
+
+interface org.fatmansoft.teach.repository.MessageRepository {
+~ Integer getMaxId()
+~ List<Message> findByFromUserAndToUser(String,String)
+~ Optional<Message> findByMessageId(Integer)
+~ List<Message> findByToUser(String)
+}
+
+class org.fatmansoft.teach.controllers.HtmlController {
+- ResourceLoader resourceLoader
+- FSDefaultCacheStore fSDefaultCacheStore
++ String getHtmlString()
++ ResponseEntity<StreamingResponseBody> htmlGetBaseHtmlPage(HttpServletRequest)
++ void htmlGetHtmlPage(HttpServletRequest,HttpServletResponse)
++ ResponseEntity<StreamingResponseBody> getResponseObject(String)
++ ResponseEntity<StreamingResponseBody> getResponseData(String)
++ ResponseEntity<StreamingResponseBody> submitFormInfo(HttpServletRequest)
++ String getAjaxData(HttpServletRequest)
++ Map getInfoImage(Map)
++ ResponseEntity<StreamingResponseBody> getPdfDataFromHtml(String)
++ ResponseEntity<StreamingResponseBody> getHtmlPdf(Map)
+}
+
+
+class org.fatmansoft.teach.models.TravelRecord {
+- Integer travelRecordId
+- Client client
+- String departureAirportName
+- String arrivalAirportName
+- String status
++ Integer getTravelRecordId()
++ void setTravelRecordId(Integer)
++ String getArrivalAirportName()
++ void setArrivalAirportName(String)
++ String getDepartureAirportName()
++ void setDepartureAirportName(String)
++ Client getClient()
++ void setClient(Client)
++ String getStatus()
++ void setStatus(String)
+}
+
+
+class org.fatmansoft.teach.models.ModifyLog {
+- Integer id
+- String type
+- String tableName
+- String info
+- String operateTime
+- Integer operatorId
++ Integer getId()
++ void setId(Integer)
++ String getTableName()
++ void setTableName(String)
++ String getType()
++ void setType(String)
++ String getInfo()
++ void setInfo(String)
++ String getOperateTime()
++ void setOperateTime(String)
++ Integer getOperatorId()
++ void setOperatorId(Integer)
+}
+
+
+class org.fatmansoft.teach.models.AirlineCompany {
+- Integer airlineCompanyId
+- Person person
+- String airlineCompanyIntroduction
+- String airlineCompanyAddress
++ Integer getAirlineCompanyId()
++ void setAirlineCompanyId(Integer)
++ String getAirlineCompanyIntroduction()
++ void setAirlineCompanyIntroduction(String)
++ String getAirlineCompanyAddress()
++ void setAirlineCompanyAddress(String)
++ Person getPerson()
++ void setPerson(Person)
+}
+
+
+class org.fatmansoft.teach.DistanceCalculator {
++ {static} int calculateDistance(int,int,int,int)
+}
+
+class org.fatmansoft.teach.controllers.MessageController {
+- UserRepository userRepository
+- PersonRepository personRepository
+- MessageRepository messageRepository
++ Integer getNewMessageId()
++ Integer getNewPersonId()
++ Map getMapFromPerson(Person)
++ DataResponse getCurrentUserData(DataRequest)
++ DataResponse sendMessage(DataRequest)
++ DataResponse fetchUsersData(DataRequest)
++ List getUserMapList(List<User>)
++ DataResponse findMessages(DataRequest)
++ DataResponse getMessages(DataRequest)
++ List getMessageMapList(List<Message>)
++ DataResponse changeStatus(DataRequest)
+}
+
+
+class org.fatmansoft.teach.models.DictionaryInfo {
+- Integer id
+- Integer pid
+- String value
+- String label
++ Integer getId()
++ void setId(Integer)
++ Integer getPid()
++ void setPid(Integer)
++ String getValue()
++ void setValue(String)
++ String getLabel()
++ void setLabel(String)
+}
+
+
+class org.fatmansoft.teach.controllers.DealController {
+- ClientRepository clientRepository
+- DealRepository dealRepository
+- SeatRepository seatRepository
++ Integer getNewDealId()
++ Map getMapFromDeal(Deal)
++ List getDealMapList(Integer)
++ List getDealMapListWithTravelRecordId(Integer,Integer)
++ DataResponse getClientDealList(DataRequest)
++ DataResponse getClientDealListWithTravelRecordId(DataRequest)
++ DataResponse getDealById(DataRequest)
+}
+
+
+class org.fatmansoft.teach.models.RouteResponse {
+- List<RouteSegment> path
+- int totalDistance
+- int totalPrice
++ List<RouteSegment> getPath()
++ void setPath(List<RouteSegment>)
++ int getTotalDistance()
++ void setTotalDistance(int)
++ int getTotalPrice()
++ void setTotalPrice(int)
+}
+
+
+class org.fatmansoft.teach.controllers.AirlineCompanyController {
+- AirlineCompanyRepository airlineCompanyRepository
+- PlaneRepository planeRepository
+- SeatRepository seatRepository
+- PersonRepository personRepository
+- DealRepository dealRepository
+- ClientRepository clientRepository
+- TariffRepository tariffRepository
+- UserRepository userRepository
++ Integer getNewAirlineCompanyId()
++ Map getMapFromAirlineCompany(AirlineCompany)
++ List getAirlineCompanyMapList(String)
++ DataResponse getAirlineCompanyList(DataRequest)
++ DataResponse getAllAirlineCompanies()
++ List getAllAirlineCompaniesMapList()
++ DataResponse getAirlineCompanyById(DataRequest)
++ DataResponse editAirlineCompany(DataRequest)
++ DataResponse changeAirlineCompanyData(DataRequest)
++ DataResponse changeAirlineCompanySave(DataRequest)
++ DataResponse getAirlineCompanyIntroduceData(DataRequest)
++ DataResponse getAirlineCompanyDataList(DataRequest)
++ DataResponse getAirlineCompanyInfo(DataRequest)
++ DataResponse airlineCompanyDelete(DataRequest)
+}
+
+
+class org.fatmansoft.teach.models.Airport {
+- Integer airportId
+- City city
+- String airportName
+- Integer airportX
+- Integer airportY
+- String status
+- String airportIntroduction
++ Integer getAirportId()
++ void setAirportId(Integer)
++ City getCity()
++ void setCity(City)
++ String getAirportName()
++ void setAirportName(String)
++ Integer getAirportY()
++ void setAirportY(Integer)
++ Integer getAirportX()
++ void setAirportX(Integer)
++ String getStatus()
++ void setStatus(String)
++ String getAirportIntroduction()
++ void setAirportIntroduction(String)
+}
+
+
+interface org.fatmansoft.teach.repository.TariffRepository {
+~ Optional<Tariff> findByTariffId(Integer)
+~ Integer getMaxId()
+~ List<Tariff> findByPlanePlaneId(Integer)
+~ Optional<Tariff> findBySeatType(String,Integer)
+}
+
+class org.fatmansoft.teach.controllers.RedirController {
++ ModelAndView redirect()
+}
+
+class org.fatmansoft.teach.controllers.MaterialController {
+- String attachFolder
+- MaterialRepository materialRepository
+- CourseRepository courseRepository
+- TaskStudentRepository taskStudentRepository
++ OptionItemList getMaterialCourseItemOptionList(DataRequest)
++ List<MyTreeNode> getMaterialTreeNodeList(DataRequest)
++ DataResponse materialDictionary(DataRequest)
++ DataResponse materialSave(DataRequest)
++ ResponseEntity<StreamingResponseBody> downloadMaterialFileWeb(DataRequest)
+}
+
+
+class org.fatmansoft.teach.controllers.PlaneController {
+- PlaneRepository planeRepository
+- ClientRepository clientRepository
+- TravelRecordRepository travelRecordRepository
+- DealRepository dealRepository
+- AirlineCompanyRepository airlineCompanyRepository
+- SeatRepository seatRepository
+- TariffRepository tariffRepository
+- NotificationRepository notificationRepository
++ Integer getNewPlaneId()
++ Integer getNewSeatId()
++ Integer getNewTariffId()
++ Integer getNewNotificationId()
++ Map getMapFromPlane(Plane)
++ DataResponse getPlaneListByAirlineCompanyName(DataRequest)
++ DataResponse searchForPlanes(DataRequest)
++ DataResponse searchForPlaneById(DataRequest)
++ Map getMapFromTariff(Tariff)
++ DataResponse getPlaneByName(DataRequest)
++ DataResponse getPlaneList(DataRequest)
++ List getPlaneMapList(Integer)
++ DataResponse searchPrice(DataRequest)
++ DataResponse getTariffList(DataRequest)
++ List getTariffMapList(Integer)
++ List getPlaneMapListByAirlineCompanyName(String)
++ List getPlaneMapListBySearch(String,String,String)
++ DataResponse addPlane(DataRequest)
++ DataResponse deletePlane(DataRequest)
++ DataResponse changePlaneSave(DataRequest)
++ DataResponse getPlaneDetails(DataRequest)
++ List getPlaneSeatList(Plane)
++ void updateFlightStatus()
+}
+
+
+class org.fatmansoft.teach.controllers.AirportController {
+- AirportRepository airportRepository
+- CityRepository cityRepository
+- PlaneRepository planeRepository
+- SeatRepository seatRepository
+- TariffRepository tariffRepository
+- PersonRepository personRepository
+- NotificationRepository notificationRepository
++ Integer getNewAirportId()
++ Integer getNewNotificationId()
++ Map getMapFromAirport(Airport)
++ List getCityAirportMapList(String)
++ DataResponse getAirportListByCityId(DataRequest)
++ List getAirportMapListByCityId(Integer)
++ DataResponse getAirportInfo(DataRequest)
++ DataResponse getCityAirportList(DataRequest)
++ List getAirportMapList(String)
++ DataResponse getAirportList(DataRequest)
++ DataResponse getAllAirportList(DataRequest)
++ List getAllAirportMapList()
++ DataResponse addAirport(DataRequest)
++ DataResponse editAirport(DataRequest)
++ DataResponse changeAirportSave(DataRequest)
++ void updateAirportStatus()
++ DataResponse getTravelOptions(DataRequest)
+- List<RouteResponse> findDirectFlights(Map<Airport,List<Plane>>,Airport,Airport,Map<String,Airport>,List<Seat>,LocalDate)
+- RouteSegment createRouteSegment(Plane,int)
+- List<RouteResponse> sortRoutesByType(List<RouteResponse>,String)
+- List<RouteResponse> findShortestRoutes(Map<Airport,List<Plane>>,Airport,Airport,Map<String,Airport>,String,LocalDate,List<Seat>)
+- List<RouteResponse> performShortestRouteSearch(Map<Airport,List<Plane>>,Airport,Airport,Map<String,Airport>,String,LocalDate,List<Seat>,boolean)
+- List<RouteResponse> constructDistanceMultipleRouteResponses(Map<Airport,List<Airport>>,Map<Airport,List<Plane>>,Airport,Map<Airport,Integer>,List<Seat>,Airport)
+- void constructDistancePaths(Map<Airport,List<Airport>>,Map<Airport,List<Plane>>,Airport,List<RouteSegment>,List<Plane>,List<RouteResponse>,int,List<Seat>,Airport)
+- List<RouteResponse> findCheapestRoutes(Map<Airport,List<Plane>>,Airport,Airport,Map<String,Airport>,String,LocalDate,List<Seat>)
+- List<RouteResponse> performCheapestRouteSearch(Map<Airport,List<Plane>>,Airport,Airport,Map<String,Airport>,String,LocalDate,List<Seat>,boolean)
+- List<RouteResponse> constructPriceMultipleRouteResponses(Map<Airport,List<Airport>>,Map<Airport,List<Plane>>,Airport,Map<Airport,Integer>,List<Seat>,Airport)
+- void constructPricePaths(Map<Airport,List<Airport>>,Map<Airport,List<Plane>>,Airport,List<RouteSegment>,List<Plane>,List<RouteResponse>,int,List<Seat>,Airport)
+- List<RouteResponse> combineRouteResponses(List<RouteResponse>,List<RouteResponse>)
+- List<RouteResponse> findAllRoutes(Map<Airport,List<Plane>>,Airport,Airport,Map<String,Airport>,String,LocalDate,List<Seat>)
+}
+
+
+class org.fatmansoft.teach.controllers.PathNode {
+~ Airport airport
+~ List<RouteSegment> segments
+~ LocalDateTime arrivalTime
+~ int totalDistance
+~ int totalPrice
+~ boolean hasVisitedViaAirport
+}
+
+class org.fatmansoft.teach.models.Notification {
+- Integer notificationId
+- Person person
+- String title
+- String text
+- String date
+- String status
++ Integer getNotificationId()
++ void setNotificationId(Integer)
++ Person getPerson()
++ void setPerson(Person)
++ String getTitle()
++ void setTitle(String)
++ String getText()
++ void setText(String)
++ String getDate()
++ void setDate(String)
++ String getStatus()
++ void setStatus(String)
+}
+
+
+interface org.fatmansoft.teach.repository.RequestLogRepository {
+}
+interface org.fatmansoft.teach.repository.MenuInfoRepository {
+~ List<MenuInfo> findByUserTypeIds(String)
+~ List<MenuInfo> findByUserTypeIds(String,Integer)
+~ int countMenuInfoByPid(Integer)
+}
+
+class org.fatmansoft.teach.models.FamilyMember {
+- Integer memberId
+- Student student
+- String relation
+- String name
+- String gender
+- Integer age
+- String unit
++ Integer getMemberId()
++ void setMemberId(Integer)
++ Student getStudent()
++ void setStudent(Student)
++ String getRelation()
++ void setRelation(String)
++ String getName()
++ void setName(String)
++ String getGender()
++ void setGender(String)
++ Integer getAge()
++ void setAge(Integer)
++ String getUnit()
++ void setUnit(String)
+}
+
+
+class org.fatmansoft.teach.models.Client {
+- Integer clientId
+- Person person
+- Integer amountOfMoney
+- String gender
+- String idNumber
+- String realName
++ Integer getClientId()
++ void setClientId(Integer)
++ Integer getAmountOfMoney()
++ void setAmountOfMoney(Integer)
++ Person getPerson()
++ void setPerson(Person)
++ String getIdNumber()
++ void setIdNumber(String)
++ String getRealName()
++ void setRealName(String)
++ String getGender()
++ void setGender(String)
+}
+
+
+interface org.fatmansoft.teach.repository.PersonRepository {
+~ Integer getMaxId()
+~ Optional<Person> findByNum(String)
+~ Optional<Person> findByEmail(String)
+}
+
+interface org.fatmansoft.teach.repository.DictionaryInfoRepository {
+~ Integer getMaxId()
+~ List<DictionaryInfo> findRootList()
+~ List<DictionaryInfo> findByPid(Integer)
+~ List<DictionaryInfo> getDictionaryInfoList(String)
+~ int countDictionaryInfoByPid(Integer)
+}
+
+class org.fatmansoft.teach.models.ServiceDto {
+- Integer price
+- String description
+}
+
+interface org.fatmansoft.teach.repository.DealRepository {
+~ Optional<Deal> findByDealId(Integer)
+~ Integer getMaxId()
+~ List<Deal> findByClientClientId(Integer)
+~ List<Deal> findByTravelRecordTravelRecordId(Integer)
+~ List<Deal> findByClientIdAndTravelRecordId(Integer,Integer)
+~ Optional<Deal> findBySeatId(Integer)
+}
+
+interface org.fatmansoft.teach.repository.CityRepository {
+~ Optional<City> findByCityId(Integer)
+~ Integer getMaxId()
+~ Optional<City> findByCityCityName(String)
+~ List<City> findTopByOrderBySearchTimesDesc()
+~ List<City> findCityListByNationName(String)
+~ List<City> findByNationId(Integer)
+}
+
+interface org.fatmansoft.teach.repository.NotificationRepository {
+~ Integer getMaxId()
+~ Optional<Notification> findByNotificationId(Integer)
+~ List<Notification> findByPersonId(Integer)
+}
+
+class org.fatmansoft.teach.models.SystemInfo {
+- Integer id
+~ String name
+~ String value
+~ String des
++ Integer getId()
++ void setId(Integer)
++ String getName()
++ void setName(String)
++ String getValue()
++ void setValue(String)
++ String getDes()
++ void setDes(String)
+}
+
+
+interface org.fatmansoft.teach.repository.PlaneRepository {
+~ Integer getMaxId()
+~ Optional<Plane> findByPlaneId(Integer)
+~ Optional<Plane> findByPlanePlaneName(String)
+~ List<Plane> findPlaneListByAirlineCompanyName(String)
+~ List<Plane> findPlaneListByAirlineCompanyId(Integer)
+~ List<Plane> findByPlaneStatus(String)
+~ List<Plane> findByPlaneAirport(String)
+~ List<Plane> findByPlaneStatusAndConditions(String,String)
+~ List<Plane> findPlaneListBySearch(String,String,String)
+}
+
+class org.fatmansoft.teach.SystemApplicationListener {
+- SystemService systemService
+- TestService testService
++ void onApplicationEvent(ApplicationReadyEvent)
+}
+
+
+class org.fatmansoft.teach.models.Tariff {
+- Integer tariffId
+- Plane plane
+- String type
+- String description
+- Integer price
++ Integer getTariffId()
++ void setTariffId(Integer)
++ Integer getPrice()
++ void setPrice(Integer)
++ String getType()
++ void setType(String)
++ Plane getPlane()
++ void setPlane(Plane)
++ String getDescription()
++ void setDescription(String)
+}
+
+
+interface org.fatmansoft.teach.repository.NationRepository {
+~ Optional<Nation> findByNationId(Integer)
+~ Integer getMaxId()
+~ Optional<Nation> findByNationNationName(String)
+}
+
+class org.fatmansoft.teach.models.Deal {
+- Integer dealId
+- Integer value
+- Client client
+- TravelRecord travelRecord
+- Seat seat
+- String attribute
+- String status
+- String time
++ Integer getDealId()
++ void setDealId(Integer)
++ String getTime()
++ void setTime(String)
++ String getStatus()
++ void setStatus(String)
++ String getAttribute()
++ void setAttribute(String)
++ Client getClient()
++ void setClient(Client)
++ Integer getValue()
++ void setValue(Integer)
++ Seat getSeat()
++ void setSeat(Seat)
++ TravelRecord getTravelRecord()
++ void setTravelRecord(TravelRecord)
+}
+
+
+class org.fatmansoft.teach.controllers.VerificationCodeController {
+- Map<String,Instant> verificationCodeTimestamps
+- Map<String,String> verificationCodes
+- PersonRepository personRepository
+~ UserRepository userRepository
+- EmailService emailService
++ DataResponse sendVerificationCode(DataRequest)
+- void verifyAndCleanExpiredVerificationCodes()
++ void cleanupExpiredCodes()
++ DataResponse updateEmail(DataRequest)
++ DataResponse checkCode(DataRequest)
+- boolean isCodeExist(String)
+}
+
+
+class org.fatmansoft.teach.controllers.NotificationController {
+- PersonRepository personRepository
+- NotificationRepository notificationRepository
++ Integer getNewNotificationId()
++ Map getMapFromNotification(Notification)
++ List getNotificationMapListByPersonId(Integer)
++ DataResponse getNotificationListByPersonId(DataRequest)
++ DataResponse deleteNotification(DataRequest)
++ DataResponse deleteAllNotification(DataRequest)
++ DataResponse changeNotificationSave(DataRequest)
+}
+
+
+class org.fatmansoft.teach.controllers.BaseController {
+- String attachFolder
+- PasswordEncoder encoder
+- UserRepository userRepository
+- MenuInfoRepository menuInfoRepository
+- DictionaryInfoRepository dictionaryInfoRepository
+- BaseService baseService
+- UserTypeRepository userTypeRepository
+- MaterialRepository materialRepository
++ List getMenuList(Integer,Integer)
++ DataResponse getMenuList(DataRequest)
++ OptionItemList getRoleOptionItemList(DataRequest)
++ List<MyTreeNode> getMenuTreeNodeList(DataRequest)
++ DataResponse menuDelete(DataRequest)
++ DataResponse menuSave(DataRequest)
++ List<MyTreeNode> getDictionaryTreeNodeList(DataRequest)
++ DataResponse deleteDictionary(DataRequest)
++ DataResponse dictionarySave(DataRequest)
++ OptionItemList getDictionaryOptionItemList(DataRequest)
++ ResponseEntity<StreamingResponseBody> getFileByteData(DataRequest)
++ DataResponse uploadPhoto(byte[],String,String,String)
++ DataResponse updatePassword(DataRequest)
++ DataResponse uploadHtmlString(DataRequest)
++ ResponseEntity<StreamingResponseBody> htmlGetBaseHtmlPage(HttpServletRequest)
++ ResponseEntity<StreamingResponseBody> getPdfData(DataRequest)
++ DataResponse getPhotoImageStr(DataRequest)
++ DataResponse uploadPhotoWeb(Map,MultipartFile)
+}
+
+
+class org.fatmansoft.teach.controllers.SeatController {
+- PlaneRepository planeRepository
+- SeatRepository seatRepository
++ Integer getNewSeatId()
++ Map getMapFromSeat(Seat)
++ List getSeatMapList(Integer)
++ DataResponse getSeatList(DataRequest)
++ DataResponse getDealSeat(DataRequest)
++ DataResponse addSeat(DataRequest)
++ DataResponse editSeat(DataRequest)
++ DataResponse changeAirportSave(DataRequest)
+}
+
+
+interface org.fatmansoft.teach.repository.UserTypeRepository {
+~ UserType findByName(EUserType)
+}
+
+interface org.fatmansoft.teach.repository.ClientRepository {
+~ Optional<Client> findByClientId(Integer)
+~ Integer getMaxId()
+~ List<Client> findClientListByName(String)
+~ List<Client> findClientListByNumName(String)
+~ Optional<Client> findByPersonNum(String)
+}
+
+class org.fatmansoft.teach.models.RouteSegment {
+- String departureAirport
+- String arrivalAirport
+- String startDate
+- String startTime
+- String endDate
+- String endTime
+- Integer price
+- Integer planeId
+- String airlineCompanyName
++ String getDepartureAirport()
++ void setDepartureAirport(String)
++ Integer getPlaneId()
++ void setPlaneId(Integer)
++ Integer getPrice()
++ void setPrice(Integer)
++ String getEndTime()
++ void setEndTime(String)
++ String getEndDate()
++ void setEndDate(String)
++ String getStartTime()
++ void setStartTime(String)
++ String getStartDate()
++ void setStartDate(String)
++ String getArrivalAirport()
++ void setArrivalAirport(String)
++ String getAirlineCompanyName()
++ void setAirlineCompanyName(String)
+}
+
+
+class org.fatmansoft.teach.models.Spot {
+- Integer spotId
+- City city
+- String name
+- String rating
+- String category
+- String location
+- String openingHours
+- String ticketPrice
+- String description
++ City getCity()
++ void setCity(City)
++ String getCategory()
++ void setCategory(String)
++ Integer getSpotId()
++ void setSpotId(Integer)
++ String getDescription()
++ void setDescription(String)
++ String getTicketPrice()
++ void setTicketPrice(String)
++ String getOpeningHours()
++ void setOpeningHours(String)
++ String getLocation()
++ void setLocation(String)
++ String getRating()
++ void setRating(String)
++ String getName()
++ void setName(String)
+}
+
+
+class org.fatmansoft.teach.models.RequestLog {
+- Integer id
+- String url
+- String username
+- String startTime
+- Double requestTime
++ Integer getId()
++ void setId(Integer)
++ String getUrl()
++ void setUrl(String)
++ String getStartTime()
++ void setStartTime(String)
++ String getUsername()
++ void setUsername(String)
++ Double getRequestTime()
++ void setRequestTime(Double)
+}
+
+
+class org.fatmansoft.teach.controllers.CityController {
+- CityRepository cityRepository
+- NationRepository nationRepository
++ Integer getNewCityId()
++ Map getMapFromCities(City)
++ DataResponse getCityByName(DataRequest)
++ DataResponse getCityById(DataRequest)
++ DataResponse getCityListByNationId(DataRequest)
++ List getCityMapListByNationId(Integer)
++ List getAllCitiesMapList()
++ DataResponse getPopularCities()
++ List getPopularCitiesMapList()
++ DataResponse getAllCityList(DataRequest)
++ DataResponse getNationCityList(DataRequest)
++ DataResponse getCityInfo(DataRequest)
++ DataResponse deleteCity(DataRequest)
++ DataResponse addCity(DataRequest)
++ DataResponse changeCitySave(DataRequest)
++ DataResponse getTimeDifference(String,String)
+}
+
+
+interface org.fatmansoft.teach.repository.FamilyMemberRepository {
+~ List<FamilyMember> findByStudentStudentId(Integer)
+}
+
+class org.fatmansoft.teach.controllers.ClientController {
+- ClientRepository clientRepository
+- SeatRepository seatRepository
+- DealRepository dealRepository
+- PlaneRepository planeRepository
+- TravelRecordRepository travelRecordRepository
+- UserRepository userRepository
+- PersonRepository personRepository
+- UserTypeRepository userTypeRepository
+- PasswordEncoder encoder
+- BaseService baseService
++ Integer getNewClientId()
++ Integer getNewTravelRecordId()
++ Integer getNewDealId()
++ DataResponse createNewRecord(DataRequest)
++ Map getMapFromClient(Client)
++ List getClientMapList(String)
++ DataResponse getClientListByNumName(DataRequest)
++ DataResponse getClientList(DataRequest)
++ DataResponse getClientTravelRecordList(DataRequest)
++ Map getMapFromTravelRecord(TravelRecord)
++ List getTravelRecordMapList(Integer)
++ DataResponse getClientIntroduceData(DataRequest)
++ DataResponse getClientInfo(DataRequest)
++ DataResponse clientDelete(DataRequest)
++ DataResponse changeClientData(DataRequest)
++ DataResponse changeClientSave(DataRequest)
++ DataResponse changeClientIDAndName(DataRequest)
++ DataResponse getClientData(DataRequest)
++ DataResponse changeClientDataByAdmin(DataRequest)
++ DataResponse purchaseTicket(DataRequest)
++ DataResponse refundTicket(DataRequest)
++ DataResponse cancelTicket(DataRequest)
++ DataResponse reBook(DataRequest)
++ DataResponse handleRefundAll(DataRequest)
+}
+
+
+class org.fatmansoft.teach.models.Person {
+- Integer personId
+- String num
+- String name
+- String type
+- String email
+- String phone
++ Integer getPersonId()
++ void setPersonId(Integer)
++ String getNum()
++ void setNum(String)
++ String getName()
++ void setName(String)
++ String getType()
++ void setType(String)
++ String getEmail()
++ void setEmail(String)
++ String getPhone()
++ void setPhone(String)
+}
+
+
+class org.fatmansoft.teach.models.Plane {
+- Integer planeId
+- AirlineCompany airlineCompany
+- String planeName
+- String startCity
+- String endCity
+- String startTime
+- String endTime
+- String startDay
+- String endDay
+- Integer number_all
+- Integer number_rest
+- String departureAirport
+- String arrivalAirport
+- String planeStatus
++ Integer getPlaneId()
++ void setPlaneId(Integer)
++ String getPlaneName()
++ void setPlaneName(String)
++ String getStartCity()
++ void setStartCity(String)
++ String getEndDay()
++ void setEndDay(String)
++ String getStartDay()
++ void setStartDay(String)
++ String getEndTime()
++ void setEndTime(String)
++ String getStartTime()
++ void setStartTime(String)
++ String getEndCity()
++ void setEndCity(String)
++ String getPlaneStatus()
++ void setPlaneStatus(String)
++ String getArrivalAirport()
++ void setArrivalAirport(String)
++ String getDepartureAirport()
++ void setDepartureAirport(String)
++ AirlineCompany getAirlineCompany()
++ void setAirlineCompany(AirlineCompany)
++ Integer getNumber_all()
++ void setNumber_all(Integer)
++ Integer getNumber_rest()
++ void setNumber_rest(Integer)
+}
+
+
+interface org.fatmansoft.teach.repository.UserRepository {
+~ Integer getMaxId()
+~ Optional<User> findByUserName(String)
+~ Optional<User> findByPersonNum(String)
+~ Optional<User> findByPersonPersonId(Integer)
+~ Optional<User> findByUserId(Integer)
+~ Boolean existsByUserName(String)
+~ Integer countLastLoginTime(String)
+~ List getCountList()
+~ List<User> findByUserTypeId(Integer)
+}
+
+class org.fatmansoft.teach.models.MenuInfo {
+- Integer id
+- String userTypeIds
+- Integer pid
+- String name
+- String title
++ Integer getId()
++ void setId(Integer)
++ String getUserTypeIds()
++ void setUserTypeIds(String)
++ Integer getPid()
++ void setPid(Integer)
++ String getName()
++ void setName(String)
++ String getTitle()
++ void setTitle(String)
+}
+
+
+interface org.fatmansoft.teach.repository.VisaFreeAgreementRepository {
+~ List<VisaFreeAgreement> findByNation1(Nation)
+~ List<VisaFreeAgreement> findByNation2(Nation)
+}
+
+class org.fatmansoft.teach.controllers.SpotController {
+- SpotRepository spotRepository
+- CityRepository cityRepository
++ Integer getNewSpotId()
++ Map getMapFromSpot(Spot)
++ List getSpotMapList()
++ DataResponse getSpotList(DataRequest)
++ DataResponse getSpotInfo(DataRequest)
++ DataResponse addSpot(DataRequest)
++ DataResponse changeSpotSave(DataRequest)
++ DataResponse deleteSpot(DataRequest)
+}
+
+
+class org.fatmansoft.teach.SpringBootSecurityJwtApplication {
++ {static} void main(String[])
++ CommandLineRunner commandLineRunner()
+}
+
+class org.fatmansoft.teach.models.UserType {
+- Integer id
+- EUserType name
++ Integer getId()
++ void setId(Integer)
++ EUserType getName()
++ void setName(EUserType)
+}
+
+
+
+
+java.io.Serializable <|.. org.fatmansoft.teach.models.VisaFreeAgreement
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.SeatRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.AirlineCompanyRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.AirportRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.SystemInfoRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.TravelRecordRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.SpotRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.ModifyLogRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.MessageRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.TariffRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.RequestLogRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.MenuInfoRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.PersonRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.DictionaryInfoRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.DealRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.CityRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.NotificationRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.PlaneRepository
+org.springframework.context.ApplicationListener <|.. org.fatmansoft.teach.SystemApplicationListener
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.NationRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.UserTypeRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.ClientRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.FamilyMemberRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.UserRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- org.fatmansoft.teach.repository.VisaFreeAgreementRepository
+@enduml

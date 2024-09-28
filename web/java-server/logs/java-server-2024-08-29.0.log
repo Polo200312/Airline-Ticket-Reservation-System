@@ -1,0 +1,236 @@
+2024-08-29 11:07:45,068 [main] INFO  o.f.t.SpringBootSecurityJwtApplication             - Starting SpringBootSecurityJwtApplication using Java 17.0.1 on Polo800881 with PID 14796 (D:\teach\web\java-server\target\classes started by 86191 in D:\teach\web\java-server)
+2024-08-29 11:07:45,067 [background-preinit] INFO  o.h.validator.internal.util.Version                - HV000001: Hibernate Validator 6.2.0.Final
+2024-08-29 11:07:45,073 [main] INFO  o.f.t.SpringBootSecurityJwtApplication             - No active profile set, falling back to default profiles: default
+2024-08-29 11:07:45,943 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-08-29 11:07:45,945 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-29 11:07:46,106 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Finished Spring Data repository scanning in 147 ms. Found 24 JPA repository interfaces.
+2024-08-29 11:07:46,509 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5ec5ea63' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-08-29 11:07:46,513 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-08-29 11:07:47,050 [main] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat initialized with port(s): 9090 (http)
+2024-08-29 11:07:47,066 [main] INFO  o.apache.coyote.http11.Http11NioProtocol           - Initializing ProtocolHandler ["http-nio-9090"]
+2024-08-29 11:07:47,066 [main] INFO  org.apache.catalina.core.StandardService           - Starting service [Tomcat]
+2024-08-29 11:07:47,066 [main] INFO  org.apache.catalina.core.StandardEngine            - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2024-08-29 11:07:47,067 [main] INFO  o.a.catalina.core.AprLifecycleListener             - Loaded Apache Tomcat Native library [1.3.0] using APR version [1.7.4].
+2024-08-29 11:07:47,067 [main] INFO  o.a.catalina.core.AprLifecycleListener             - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2024-08-29 11:07:47,067 [main] INFO  o.a.catalina.core.AprLifecycleListener             - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2024-08-29 11:07:47,079 [main] INFO  o.a.catalina.core.AprLifecycleListener             - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2024-08-29 11:07:47,199 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring embedded WebApplicationContext
+2024-08-29 11:07:47,199 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 2066 ms
+2024-08-29 11:07:47,380 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-29 11:07:47,475 [main] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Starting...
+2024-08-29 11:07:47,715 [main] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Start completed.
+2024-08-29 11:07:47,887 [main] INFO  o.hibernate.jpa.internal.util.LogHelper            - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-29 11:07:48,011 [main] INFO  org.hibernate.Version                              - HHH000412: Hibernate ORM core version 5.6.15.Final
+2024-08-29 11:07:48,207 [main] INFO  org.hibernate.annotations.common.Version           - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-08-29 11:07:48,403 [main] INFO  org.hibernate.dialect.Dialect                      - HHH000400: Using dialect: org.fatmansoft.teach.sqlite.SQLDialect
+2024-08-29 11:07:49,573 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-08-29 11:07:49,581 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-29 11:07:51,216 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping              - Adding welcome page: class path resource [public/index.html]
+2024-08-29 11:07:51,353 [main] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1bf4a79b, org.springframework.security.web.context.SecurityContextPersistenceFilter@6715a6da, org.springframework.security.web.header.HeaderWriterFilter@1a865ebf, org.springframework.web.filter.CorsFilter@a1be5cb, org.springframework.security.web.authentication.logout.LogoutFilter@12a7515b, org.fatmansoft.teach.security.jwt.AuthTokenFilter@12051d38, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@29f86630, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b44121e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@51e14cb6, org.springframework.security.web.session.SessionManagementFilter@1104cf3a, org.springframework.security.web.access.ExceptionTranslationFilter@2ef812b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7db63a01]
+2024-08-29 11:07:51,653 [main] INFO  o.apache.coyote.http11.Http11NioProtocol           - Starting ProtocolHandler ["http-nio-9090"]
+2024-08-29 11:07:51,703 [main] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat started on port(s): 9090 (http) with context path ''
+2024-08-29 11:07:51,716 [main] INFO  o.f.t.SpringBootSecurityJwtApplication             - Started SpringBootSecurityJwtApplication in 7.09 seconds (JVM running for 7.582)
+2024-08-29 11:07:51,720 [main] INFO  o.f.teach.SystemApplicationListener                - SystemInitStart
+2024-08-29 11:07:51,839 [main] INFO  o.f.teach.SystemApplicationListener                - systemInitEnd
+2024-08-29 11:08:37,492 [http-nio-9090-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-29 11:08:37,492 [http-nio-9090-exec-1] INFO  o.s.web.servlet.DispatcherServlet                  - Initializing Servlet 'dispatcherServlet'
+2024-08-29 11:08:37,493 [http-nio-9090-exec-1] INFO  o.s.web.servlet.DispatcherServlet                  - Completed initialization in 1 ms
+2024-08-29 11:08:38,028 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/getValidateCode,,2024-08-29 11:08:37,0.516
+2024-08-29 11:09:01,367 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/testValidateInfo,,2024-08-29 11:09:01,0.005
+2024-08-29 11:09:01,795 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/login,,2024-08-29 11:09:01,0.186
+2024-08-29 11:09:01,830 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/getValidateCode,C466668210,2024-08-29 11:09:01,0.013
+2024-08-29 11:09:02,171 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/base/getMenuList,C466668210,2024-08-29 11:09:02,0.019
+2024-08-29 11:09:06,609 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/statistics/getMainPageData,C466668210,2024-08-29 11:09:06,0.019
+2024-08-29 11:09:06,706 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/spot/getSpotList,C466668210,2024-08-29 11:09:06,0.027
+2024-08-29 11:09:24,447 [http-nio-9090-exec-8] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/nation/getAllNationList,C466668210,2024-08-29 11:09:24,0.015
+2024-08-29 11:09:26,405 [http-nio-9090-exec-9] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityListByNationId,C466668210,2024-08-29 11:09:26,0.017
+2024-08-29 11:09:30,541 [http-nio-9090-exec-10] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityListByNationId,C466668210,2024-08-29 11:09:30,0.005
+2024-08-29 11:09:31,128 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/airport/getAirportListByCityId,C466668210,2024-08-29 11:09:31,0.01
+2024-08-29 11:09:52,035 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/getClientIntroduceData,C466668210,2024-08-29 11:09:52,0.019
+2024-08-29 11:09:52,053 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/base/getPhotoImageStr,C466668210,2024-08-29 11:09:52,0.012
+2024-08-29 11:09:52,069 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/notification/getNotificationListByPersonId,C466668210,2024-08-29 11:09:52,0.005
+2024-08-29 11:09:54,313 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/nation/getAllNationList,C466668210,2024-08-29 11:09:54,0.011
+2024-08-29 11:09:55,828 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityListByNationId,C466668210,2024-08-29 11:09:55,0.006
+2024-08-29 11:09:57,235 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityListByNationId,C466668210,2024-08-29 11:09:57,0.005
+2024-08-29 11:09:57,810 [http-nio-9090-exec-8] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/airport/getAirportListByCityId,C466668210,2024-08-29 11:09:57,0.008
+2024-08-29 11:09:59,944 [http-nio-9090-exec-9] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/airport/getAirportListByCityId,C466668210,2024-08-29 11:09:59,0.007
+2024-08-29 11:10:07,397 [http-nio-9090-exec-10] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityById,C466668210,2024-08-29 11:10:07,0.01
+2024-08-29 11:10:07,575 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityById,C466668210,2024-08-29 11:10:07,0.007
+2024-08-29 11:10:07,653 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/airport/getTravelOptions,C466668210,2024-08-29 11:10:07,0.055
+2024-08-29 11:10:18,289 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/createNewRecord,C466668210,2024-08-29 11:10:18,0.015
+2024-08-29 11:10:19,769 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getTariffList,C466668210,2024-08-29 11:10:19,0.006
+2024-08-29 11:10:19,769 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getTariffList,C466668210,2024-08-29 11:10:19,0.007
+2024-08-29 11:10:19,769 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getTariffList,C466668210,2024-08-29 11:10:19,0.008
+2024-08-29 11:10:19,769 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getTariffList,C466668210,2024-08-29 11:10:19,0.009
+2024-08-29 11:10:19,791 [http-nio-9090-exec-8] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getPlaneDetails,C466668210,2024-08-29 11:10:19,0.007
+2024-08-29 11:10:19,792 [http-nio-9090-exec-9] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getPlaneDetails,C466668210,2024-08-29 11:10:19,0.008
+2024-08-29 11:10:20,106 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getPlaneDetails,C466668210,2024-08-29 11:10:20,0.005
+2024-08-29 11:10:20,111 [http-nio-9090-exec-10] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getPlaneDetails,C466668210,2024-08-29 11:10:20,0.011
+2024-08-29 11:10:22,586 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:22,0.006
+2024-08-29 11:10:22,905 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:22,0.007
+2024-08-29 11:10:37,401 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:37,0.007
+2024-08-29 11:10:37,401 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:37,0.009
+2024-08-29 11:10:37,407 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:37,0.011
+2024-08-29 11:10:37,415 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:37,0.021
+2024-08-29 11:10:40,248 [http-nio-9090-exec-8] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:40,0.005
+2024-08-29 11:10:40,561 [http-nio-9090-exec-9] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:40,0.004
+2024-08-29 11:10:40,562 [http-nio-9090-exec-10] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:40,0.005
+2024-08-29 11:10:40,564 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:40,0.007
+2024-08-29 11:10:41,614 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:41,0.003
+2024-08-29 11:10:41,615 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:41,0.004
+2024-08-29 11:10:41,615 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:41,0.004
+2024-08-29 11:10:41,616 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:41,0.004
+2024-08-29 11:10:42,338 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/purchaseTicket,C466668210,2024-08-29 11:10:42,0.041
+2024-08-29 11:10:42,664 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getPlaneDetails,C466668210,2024-08-29 11:10:42,0.007
+2024-08-29 11:10:48,006 [http-nio-9090-exec-8] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:48,0.004
+2024-08-29 11:10:48,313 [http-nio-9090-exec-9] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:48,0.004
+2024-08-29 11:10:51,400 [http-nio-9090-exec-10] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:51,0.005
+2024-08-29 11:10:51,401 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:51,0.004
+2024-08-29 11:10:51,404 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:51,0.006
+2024-08-29 11:10:51,406 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:51,0.01
+2024-08-29 11:10:52,401 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:52,0.005
+2024-08-29 11:10:52,703 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:52,0.003
+2024-08-29 11:10:52,704 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:52,0.004
+2024-08-29 11:10:52,721 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:52,0.004
+2024-08-29 11:10:56,598 [http-nio-9090-exec-8] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:56,0.006
+2024-08-29 11:10:56,600 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:56,0.008
+2024-08-29 11:10:56,601 [http-nio-9090-exec-10] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:56,0.009
+2024-08-29 11:10:56,602 [http-nio-9090-exec-9] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:10:56,0.009
+2024-08-29 11:10:57,763 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/purchaseTicket,C466668210,2024-08-29 11:10:57,0.027
+2024-08-29 11:10:58,095 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getPlaneDetails,C466668210,2024-08-29 11:10:58,0.006
+2024-08-29 11:11:01,118 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:11:01,0.005
+2024-08-29 11:11:01,422 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:11:01,0.005
+2024-08-29 11:11:01,422 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:11:01,0.005
+2024-08-29 11:11:01,430 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:11:01,0.004
+2024-08-29 11:11:03,649 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:11:03,0.005
+2024-08-29 11:11:03,649 [http-nio-9090-exec-8] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:11:03,0.005
+2024-08-29 11:11:21,271 [http-nio-9090-exec-9] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/cancelTicket,C466668210,2024-08-29 11:11:21,0.032
+2024-08-29 11:11:21,611 [http-nio-9090-exec-10] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityById,C466668210,2024-08-29 11:11:21,0.006
+2024-08-29 11:11:21,620 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityById,C466668210,2024-08-29 11:11:21,0.003
+2024-08-29 11:11:21,903 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/airport/getTravelOptions,C466668210,2024-08-29 11:11:21,0.046
+2024-08-29 11:11:43,983 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/getClientIntroduceData,C466668210,2024-08-29 11:11:43,0.004
+2024-08-29 11:11:44,306 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/base/getPhotoImageStr,C466668210,2024-08-29 11:11:44,0.007
+2024-08-29 11:11:44,568 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/notification/getNotificationListByPersonId,C466668210,2024-08-29 11:11:44,0.006
+2024-08-29 11:11:45,985 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/notification/getNotificationListByPersonId,C466668210,2024-08-29 11:11:45,0.005
+2024-08-29 11:11:46,218 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/notification/changeNotificationSave,C466668210,2024-08-29 11:11:46,0.009
+2024-08-29 11:11:46,261 [http-nio-9090-exec-8] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/notification/changeNotificationSave,C466668210,2024-08-29 11:11:46,0.006
+2024-08-29 11:11:58,869 [http-nio-9090-exec-9] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/getClientIntroduceData,C466668210,2024-08-29 11:11:58,0.004
+2024-08-29 11:11:58,883 [http-nio-9090-exec-10] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/base/getPhotoImageStr,C466668210,2024-08-29 11:11:58,0.005
+2024-08-29 11:11:59,216 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/notification/getNotificationListByPersonId,C466668210,2024-08-29 11:11:59,0.005
+2024-08-29 11:12:02,537 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/deal/getClientDealList,C466668210,2024-08-29 11:12:02,0.009
+2024-08-29 11:12:02,715 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/getClientTravelRecordList,C466668210,2024-08-29 11:12:02,0.007
+2024-08-29 11:12:03,876 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/deal/getClientDealListWithTravelRecordId,C466668210,2024-08-29 11:12:03,0.003
+2024-08-29 11:12:04,550 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/deal/getClientDealListWithTravelRecordId,C466668210,2024-08-29 11:12:04,0.004
+2024-08-29 11:16:19,841 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-29 11:16:19,842 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Shutdown initiated...
+2024-08-29 11:16:19,845 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Shutdown completed.
+2024-08-29 11:16:25,542 [background-preinit] INFO  o.h.validator.internal.util.Version                - HV000001: Hibernate Validator 6.2.0.Final
+2024-08-29 11:16:25,547 [main] INFO  o.f.t.SpringBootSecurityJwtApplication             - Starting SpringBootSecurityJwtApplication using Java 17.0.1 on Polo800881 with PID 14648 (D:\teach\web\java-server\target\classes started by 86191 in D:\teach\web\java-server)
+2024-08-29 11:16:25,548 [main] INFO  o.f.t.SpringBootSecurityJwtApplication             - No active profile set, falling back to default profiles: default
+2024-08-29 11:16:26,374 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-08-29 11:16:26,375 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-29 11:16:26,529 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Finished Spring Data repository scanning in 136 ms. Found 24 JPA repository interfaces.
+2024-08-29 11:16:26,931 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@79c5460e' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-08-29 11:16:26,936 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-08-29 11:16:27,487 [main] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat initialized with port(s): 9090 (http)
+2024-08-29 11:16:27,498 [main] INFO  o.apache.coyote.http11.Http11NioProtocol           - Initializing ProtocolHandler ["http-nio-9090"]
+2024-08-29 11:16:27,499 [main] INFO  org.apache.catalina.core.StandardService           - Starting service [Tomcat]
+2024-08-29 11:16:27,499 [main] INFO  org.apache.catalina.core.StandardEngine            - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2024-08-29 11:16:27,500 [main] INFO  o.a.catalina.core.AprLifecycleListener             - Loaded Apache Tomcat Native library [1.3.0] using APR version [1.7.4].
+2024-08-29 11:16:27,500 [main] INFO  o.a.catalina.core.AprLifecycleListener             - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2024-08-29 11:16:27,501 [main] INFO  o.a.catalina.core.AprLifecycleListener             - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2024-08-29 11:16:27,504 [main] INFO  o.a.catalina.core.AprLifecycleListener             - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2024-08-29 11:16:27,626 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring embedded WebApplicationContext
+2024-08-29 11:16:27,626 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 2040 ms
+2024-08-29 11:16:27,806 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-29 11:16:27,891 [main] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Starting...
+2024-08-29 11:16:28,085 [main] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Start completed.
+2024-08-29 11:16:28,259 [main] INFO  o.hibernate.jpa.internal.util.LogHelper            - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-29 11:16:28,464 [main] INFO  org.hibernate.Version                              - HHH000412: Hibernate ORM core version 5.6.15.Final
+2024-08-29 11:16:28,632 [main] INFO  org.hibernate.annotations.common.Version           - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-08-29 11:16:28,900 [main] INFO  org.hibernate.dialect.Dialect                      - HHH000400: Using dialect: org.fatmansoft.teach.sqlite.SQLDialect
+2024-08-29 11:16:29,672 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-08-29 11:16:29,678 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-29 11:16:31,307 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping              - Adding welcome page: class path resource [public/index.html]
+2024-08-29 11:16:31,463 [main] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@159314ca, org.springframework.security.web.context.SecurityContextPersistenceFilter@1002c49e, org.springframework.security.web.header.HeaderWriterFilter@52737c1, org.springframework.web.filter.CorsFilter@bafc754, org.springframework.security.web.authentication.logout.LogoutFilter@29f86630, org.fatmansoft.teach.security.jwt.AuthTokenFilter@2af31aba, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21a462ce, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@63ff861e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e8684a3, org.springframework.security.web.session.SessionManagementFilter@755a4ef5, org.springframework.security.web.access.ExceptionTranslationFilter@2b8b5d9e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@342a5b57]
+2024-08-29 11:16:31,796 [main] INFO  o.apache.coyote.http11.Http11NioProtocol           - Starting ProtocolHandler ["http-nio-9090"]
+2024-08-29 11:16:31,853 [main] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat started on port(s): 9090 (http) with context path ''
+2024-08-29 11:16:31,866 [main] INFO  o.f.t.SpringBootSecurityJwtApplication             - Started SpringBootSecurityJwtApplication in 6.737 seconds (JVM running for 7.125)
+2024-08-29 11:16:31,870 [main] INFO  o.f.teach.SystemApplicationListener                - SystemInitStart
+2024-08-29 11:16:32,011 [main] INFO  o.f.teach.SystemApplicationListener                - systemInitEnd
+2024-08-29 11:17:27,166 [http-nio-9090-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-29 11:17:27,166 [http-nio-9090-exec-3] INFO  o.s.web.servlet.DispatcherServlet                  - Initializing Servlet 'dispatcherServlet'
+2024-08-29 11:17:27,167 [http-nio-9090-exec-3] INFO  o.s.web.servlet.DispatcherServlet                  - Completed initialization in 1 ms
+2024-08-29 11:17:27,331 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/statistics/getMainPageData,C466668210,2024-08-29 11:17:27,0.139
+2024-08-29 11:17:27,346 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/spot/getSpotList,C466668210,2024-08-29 11:17:27,0.01
+2024-08-29 11:20:01,900 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/nation/getAllNationList,C466668210,2024-08-29 11:20:01,0.022
+2024-08-29 11:21:00,773 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityListByNationId,C466668210,2024-08-29 11:21:00,0.016
+2024-08-29 11:21:02,204 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityListByNationId,C466668210,2024-08-29 11:21:02,0.012
+2024-08-29 11:22:15,548 [http-nio-9090-exec-8] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/airport/getAirportListByCityId,C466668210,2024-08-29 11:22:15,0.015
+2024-08-29 11:22:16,894 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/airport/getAirportListByCityId,C466668210,2024-08-29 11:22:16,0.01
+2024-08-29 11:22:22,082 [http-nio-9090-exec-9] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityById,C466668210,2024-08-29 11:22:22,0.014
+2024-08-29 11:22:22,309 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityById,C466668210,2024-08-29 11:22:22,0.007
+2024-08-29 11:22:22,463 [http-nio-9090-exec-10] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/airport/getTravelOptions,C466668210,2024-08-29 11:22:22,0.114
+2024-08-29 11:23:12,548 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/createNewRecord,C466668210,2024-08-29 11:23:12,0.084
+2024-08-29 11:23:12,590 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getTariffList,C466668210,2024-08-29 11:23:12,0.01
+2024-08-29 11:23:12,877 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getTariffList,C466668210,2024-08-29 11:23:12,0.01
+2024-08-29 11:23:12,877 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getTariffList,C466668210,2024-08-29 11:23:12,0.008
+2024-08-29 11:23:12,889 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getPlaneDetails,C466668210,2024-08-29 11:23:12,0.021
+2024-08-29 11:23:12,891 [http-nio-9090-exec-8] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getPlaneDetails,C466668210,2024-08-29 11:23:12,0.025
+2024-08-29 11:23:12,893 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getPlaneDetails,C466668210,2024-08-29 11:23:12,0.024
+2024-08-29 11:23:20,684 [http-nio-9090-exec-9] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:23:20,0.01
+2024-08-29 11:23:20,703 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:23:20,0.014
+2024-08-29 11:23:20,703 [http-nio-9090-exec-10] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:23:20,0.014
+2024-08-29 11:23:21,812 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:23:21,0.008
+2024-08-29 11:23:22,128 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:23:22,0.009
+2024-08-29 11:23:38,321 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/purchaseTicket,C466668210,2024-08-29 11:23:38,0.043
+2024-08-29 11:23:38,548 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getPlaneDetails,C466668210,2024-08-29 11:23:38,0.007
+2024-08-29 11:23:42,391 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:23:42,0.006
+2024-08-29 11:23:42,700 [http-nio-9090-exec-8] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:23:42,0.004
+2024-08-29 11:23:44,915 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/purchaseTicket,C466668210,2024-08-29 11:23:44,0.037
+2024-08-29 11:23:45,158 [http-nio-9090-exec-9] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getPlaneDetails,C466668210,2024-08-29 11:23:45,0.015
+2024-08-29 11:23:46,518 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/cancelTicket,C466668210,2024-08-29 11:23:46,0.106
+2024-08-29 11:23:46,850 [http-nio-9090-exec-10] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityById,C466668210,2024-08-29 11:23:46,0.009
+2024-08-29 11:23:46,864 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityById,C466668210,2024-08-29 11:23:46,0.007
+2024-08-29 11:23:47,190 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/airport/getTravelOptions,C466668210,2024-08-29 11:23:47,0.085
+2024-08-29 11:23:52,798 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/createNewRecord,C466668210,2024-08-29 11:23:52,0.021
+2024-08-29 11:23:53,140 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getTariffList,C466668210,2024-08-29 11:23:53,0.008
+2024-08-29 11:23:53,140 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getTariffList,C466668210,2024-08-29 11:23:53,0.007
+2024-08-29 11:23:53,142 [http-nio-9090-exec-8] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getTariffList,C466668210,2024-08-29 11:23:53,0.01
+2024-08-29 11:23:53,142 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getPlaneDetails,C466668210,2024-08-29 11:23:53,0.009
+2024-08-29 11:23:53,146 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getPlaneDetails,C466668210,2024-08-29 11:23:53,0.014
+2024-08-29 11:23:53,150 [http-nio-9090-exec-9] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getPlaneDetails,C466668210,2024-08-29 11:23:53,0.017
+2024-08-29 11:23:55,294 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:23:55,0.007
+2024-08-29 11:23:55,305 [http-nio-9090-exec-10] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:23:55,0.018
+2024-08-29 11:23:55,810 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/purchaseTicket,C466668210,2024-08-29 11:23:55,0.05
+2024-08-29 11:23:56,150 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/getPlaneDetails,C466668210,2024-08-29 11:23:56,0.02
+2024-08-29 11:23:56,989 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:23:56,0.006
+2024-08-29 11:23:57,304 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/plane/searchPrice,C466668210,2024-08-29 11:23:57,0.005
+2024-08-29 11:23:59,702 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/cancelTicket,C466668210,2024-08-29 11:23:59,0.086
+2024-08-29 11:23:59,889 [http-nio-9090-exec-8] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityById,C466668210,2024-08-29 11:23:59,0.009
+2024-08-29 11:24:00,040 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityById,C466668210,2024-08-29 11:24:00,0.007
+2024-08-29 11:24:00,093 [http-nio-9090-exec-9] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/airport/getTravelOptions,C466668210,2024-08-29 11:24:00,0.048
+2024-08-29 11:24:01,456 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/getClientIntroduceData,C466668210,2024-08-29 11:24:01,0.009
+2024-08-29 11:24:01,761 [http-nio-9090-exec-10] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/base/getPhotoImageStr,C466668210,2024-08-29 11:24:01,0.035
+2024-08-29 11:24:01,777 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/notification/getNotificationListByPersonId,C466668210,2024-08-29 11:24:01,0.006
+2024-08-29 11:24:02,567 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/notification/getNotificationListByPersonId,C466668210,2024-08-29 11:24:02,0.006
+2024-08-29 11:24:02,596 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/notification/changeNotificationSave,C466668210,2024-08-29 11:24:02,0.022
+2024-08-29 11:24:02,898 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/notification/changeNotificationSave,C466668210,2024-08-29 11:24:02,0.014
+2024-08-29 11:24:02,916 [http-nio-9090-exec-8] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/notification/changeNotificationSave,C466668210,2024-08-29 11:24:02,0.032
+2024-08-29 11:24:02,931 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/notification/changeNotificationSave,C466668210,2024-08-29 11:24:02,0.045
+2024-08-29 11:24:02,948 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/notification/changeNotificationSave,C466668210,2024-08-29 11:24:02,0.064
+2024-08-29 11:24:30,197 [http-nio-9090-exec-9] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/nation/getAllNationList,C466668210,2024-08-29 11:24:30,0.008
+2024-08-29 11:24:31,412 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityListByNationId,C466668210,2024-08-29 11:24:31,0.007
+2024-08-29 11:24:32,929 [http-nio-9090-exec-10] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityListByNationId,C466668210,2024-08-29 11:24:32,0.007
+2024-08-29 11:24:33,544 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/airport/getAirportListByCityId,C466668210,2024-08-29 11:24:33,0.006
+2024-08-29 11:24:35,437 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/airport/getAirportListByCityId,C466668210,2024-08-29 11:24:35,0.01
+2024-08-29 11:24:41,503 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityById,C466668210,2024-08-29 11:24:41,0.006
+2024-08-29 11:24:41,816 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/city/getCityById,C466668210,2024-08-29 11:24:41,0.009
+2024-08-29 11:24:41,898 [http-nio-9090-exec-8] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/airport/getTravelOptions,C466668210,2024-08-29 11:24:41,0.073
+2024-08-29 11:25:08,852 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/client/getClientIntroduceData,C466668210,2024-08-29 11:25:08,0.008
+2024-08-29 11:25:09,106 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/base/getPhotoImageStr,C466668210,2024-08-29 11:25:09,0.015
+2024-08-29 11:25:09,175 [http-nio-9090-exec-9] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/notification/getNotificationListByPersonId,C466668210,2024-08-29 11:25:09,0.006
+2024-08-29 11:25:09,602 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/notification/getNotificationListByPersonId,C466668210,2024-08-29 11:25:09,0.005
+2024-08-29 11:25:21,626 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-29 11:25:21,629 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Shutdown initiated...
+2024-08-29 11:25:21,636 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Shutdown completed.

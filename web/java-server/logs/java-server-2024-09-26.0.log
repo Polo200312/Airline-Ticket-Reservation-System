@@ -1,0 +1,58 @@
+2024-09-26 12:40:00,806 [main] INFO  o.f.t.SpringBootSecurityJwtApplication             - Starting SpringBootSecurityJwtApplication using Java 17.0.1 on Polo800881 with PID 24672 (D:\teach\web\java-server\target\classes started by 86191 in D:\teach\web\java-server)
+2024-09-26 12:40:00,806 [background-preinit] INFO  o.h.validator.internal.util.Version                - HV000001: Hibernate Validator 6.2.0.Final
+2024-09-26 12:40:00,809 [main] INFO  o.f.t.SpringBootSecurityJwtApplication             - No active profile set, falling back to default profiles: default
+2024-09-26 12:40:01,689 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-09-26 12:40:01,691 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-26 12:40:01,837 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Finished Spring Data repository scanning in 137 ms. Found 25 JPA repository interfaces.
+2024-09-26 12:40:02,356 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@553bc36c' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-09-26 12:40:02,363 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-09-26 12:40:02,912 [main] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat initialized with port(s): 9090 (http)
+2024-09-26 12:40:02,928 [main] INFO  o.apache.coyote.http11.Http11NioProtocol           - Initializing ProtocolHandler ["http-nio-9090"]
+2024-09-26 12:40:02,928 [main] INFO  org.apache.catalina.core.StandardService           - Starting service [Tomcat]
+2024-09-26 12:40:02,929 [main] INFO  org.apache.catalina.core.StandardEngine            - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2024-09-26 12:40:02,930 [main] INFO  o.a.catalina.core.AprLifecycleListener             - Loaded Apache Tomcat Native library [1.3.0] using APR version [1.7.4].
+2024-09-26 12:40:02,931 [main] INFO  o.a.catalina.core.AprLifecycleListener             - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2024-09-26 12:40:02,931 [main] INFO  o.a.catalina.core.AprLifecycleListener             - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2024-09-26 12:40:02,944 [main] INFO  o.a.catalina.core.AprLifecycleListener             - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2024-09-26 12:40:03,054 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring embedded WebApplicationContext
+2024-09-26 12:40:03,054 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 2194 ms
+2024-09-26 12:40:03,254 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-26 12:40:03,354 [main] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Starting...
+2024-09-26 12:40:03,541 [main] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Start completed.
+2024-09-26 12:40:03,605 [main] INFO  o.hibernate.jpa.internal.util.LogHelper            - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-26 12:40:03,647 [main] INFO  org.hibernate.Version                              - HHH000412: Hibernate ORM core version 5.6.15.Final
+2024-09-26 12:40:03,806 [main] INFO  org.hibernate.annotations.common.Version           - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-09-26 12:40:03,970 [main] INFO  org.hibernate.dialect.Dialect                      - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2024-09-26 12:40:04,787 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-09-26 12:40:04,794 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-26 12:40:06,778 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping              - Adding welcome page: class path resource [public/index.html]
+2024-09-26 12:40:06,927 [main] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1fa8a4f7, org.springframework.security.web.context.SecurityContextPersistenceFilter@2b4675db, org.springframework.security.web.header.HeaderWriterFilter@3420547, org.springframework.web.filter.CorsFilter@54c1878b, org.springframework.security.web.authentication.logout.LogoutFilter@3985175e, org.fatmansoft.teach.security.jwt.AuthTokenFilter@4144d4a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@58ec3e8b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4d50f682, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27f6e2c3, org.springframework.security.web.session.SessionManagementFilter@69860811, org.springframework.security.web.access.ExceptionTranslationFilter@7b5e5fa, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@389fad5b]
+2024-09-26 12:40:07,253 [main] INFO  o.apache.coyote.http11.Http11NioProtocol           - Starting ProtocolHandler ["http-nio-9090"]
+2024-09-26 12:40:07,342 [main] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat started on port(s): 9090 (http) with context path ''
+2024-09-26 12:40:07,369 [main] INFO  o.f.t.SpringBootSecurityJwtApplication             - Started SpringBootSecurityJwtApplication in 7.072 seconds (JVM running for 7.579)
+2024-09-26 12:40:07,373 [main] INFO  o.f.teach.SystemApplicationListener                - SystemInitStart
+2024-09-26 12:40:07,545 [main] INFO  o.f.teach.SystemApplicationListener                - systemInitEnd
+2024-09-26 12:40:47,112 [http-nio-9090-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-26 12:40:47,113 [http-nio-9090-exec-1] INFO  o.s.web.servlet.DispatcherServlet                  - Initializing Servlet 'dispatcherServlet'
+2024-09-26 12:40:47,116 [http-nio-9090-exec-1] INFO  o.s.web.servlet.DispatcherServlet                  - Completed initialization in 2 ms
+2024-09-26 12:40:48,437 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/getValidateCode,,2024-09-26 12:40:47,1.273
+2024-09-26 12:43:28,030 [http-nio-9090-exec-2] INFO  o.fatmansoft.teach.service.EmailService            - Email email sent
+2024-09-26 12:43:28,031 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/sendVerificationCode,,2024-09-26 12:43:25,2.283
+2024-09-26 12:44:24,544 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/checkCode,,2024-09-26 12:44:24,0.004
+2024-09-26 12:44:25,004 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/registerUser,,2024-09-26 12:44:24,0.147
+2024-09-26 12:44:25,124 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/getValidateCode,,2024-09-26 12:44:25,0.009
+2024-09-26 12:47:39,061 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/getValidateCode,,2024-09-26 12:47:39,0.016
+2024-09-26 12:47:42,270 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/getValidateCode,,2024-09-26 12:47:42,0.014
+2024-09-26 12:47:43,826 [http-nio-9090-exec-8] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/getValidateCode,,2024-09-26 12:47:43,0.007
+2024-09-26 12:47:44,306 [http-nio-9090-exec-9] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/getValidateCode,,2024-09-26 12:47:44,0.007
+2024-09-26 12:47:45,917 [http-nio-9090-exec-10] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/getValidateCode,,2024-09-26 12:47:45,0.013
+2024-09-26 12:47:59,966 [http-nio-9090-exec-1] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/testValidateInfo,,2024-09-26 12:47:59,0.003
+2024-09-26 12:48:00,205 [http-nio-9090-exec-2] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/login,,2024-09-26 12:47:59,0.234
+2024-09-26 12:48:00,260 [http-nio-9090-exec-3] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/base/getMenuList,A477847,2024-09-26 12:48:00,0.048
+2024-09-26 12:48:00,302 [http-nio-9090-exec-4] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /auth/getValidateCode,A477847,2024-09-26 12:48:00,0.012
+2024-09-26 12:48:03,699 [http-nio-9090-exec-5] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/statistics/getMainPageData,A477847,2024-09-26 12:48:03,0.026
+2024-09-26 12:48:03,990 [http-nio-9090-exec-6] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/statistics/getMainPageData,A477847,2024-09-26 12:48:03,0.022
+2024-09-26 12:48:04,055 [http-nio-9090-exec-7] INFO  o.f.teach.security.jwt.AuthTokenFilter             - /api/spot/getSpotList,A477847,2024-09-26 12:48:04,0.023
+2024-09-26 12:49:52,231 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-26 12:49:52,233 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Shutdown initiated...
+2024-09-26 12:49:52,241 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Shutdown completed.

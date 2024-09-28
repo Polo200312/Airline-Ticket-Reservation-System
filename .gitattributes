@@ -1,0 +1,17 @@
+D:teach filter=lfs diff=lfs merge=lfs -text
+web/java-server/target/java-server-1.0-SNAPSHOT.jar filter=lfs diff=lfs merge=lfs -text
+数据库ER图、模型图、UML类图 filter=lfs diff=lfs merge=lfs -text
+数据库课程设计课堂展示-飞机票售票系统.pptx filter=lfs diff=lfs merge=lfs -text
+run filter=lfs diff=lfs merge=lfs -text
+实现效果 filter=lfs diff=lfs merge=lfs -text
+* text=auto
+*.sql text eol=lf
+*.png filter=lfs diff=lfs merge=lfs -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.jar filter=lfs diff=lfs merge=lfs -text
+*.tar filter=lfs diff=lfs merge=lfs -text
+*.svg filter=lfs diff=lfs merge=lfs -text
+*.js filter=lfs diff=lfs merge=lfs -text
+*.java filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
